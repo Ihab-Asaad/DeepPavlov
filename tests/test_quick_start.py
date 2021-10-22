@@ -173,8 +173,6 @@ PARAMS = {
             ]
     },
     "ner": {
-        ("ner/ner_ontonotes_m1.json", "ner_ontonotes_m1", ('IP', 'TI')): [
-            (["Peter", "Blackburn"], None)],
         ("ner/ner_collection3_m1.json", "ner_collection3_m1", ('IP', 'TI')): [
             (["Валентин", "Москва"], None)],
         ("ner/conll2003_m1.json", "conll2003_m1", ('IP', 'TI')): [
@@ -189,7 +187,6 @@ PARAMS = {
         ("ner/ner_dstc2.json", "slotfill_dstc2", ALL_MODES): [ONE_ARGUMENT_INFER_CHECK],
         ("ner/ner_ontonotes.json", "ner_ontonotes", ALL_MODES): [ONE_ARGUMENT_INFER_CHECK],
         ("ner/ner_ontonotes_bert_emb.json", "ner_ontonotes_bert_emb", ('TI',)): [ONE_ARGUMENT_INFER_CHECK],
-        ("ner/ner_few_shot_ru_simulate.json", "ner_fs", ('TI',)): [ONE_ARGUMENT_INFER_CHECK],
         ("ner/ner_rus.json", "ner_rus", ('IP',)): [ONE_ARGUMENT_INFER_CHECK],
         ("ner/slotfill_dstc2.json", "slotfill_dstc2", ('IP',)):
             [
