@@ -72,7 +72,7 @@
         "out": "y_pred_onehot"
       }
     ],
-    "out": ["y_pred_probas", "y_pred_labels"]
+    "out": ["y_pred_labels", "y_pred_probas"]
   },
   "train": {
     "metrics": [

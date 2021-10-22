@@ -71,7 +71,7 @@
           "config_path": "{CONFIGS_PATH}/ner/slotfill_dstc2.json"
         },
         "intent_classifier": {
-          "config_path": "{CONFIGS_PATH}/classifiers/intents_dstc2.json"
+          "config_path": "{CONFIGS_PATH}/classifiers/intents_dstc2_bert.json"
         },
         "embedder": {
           "class_name": "fasttext",
