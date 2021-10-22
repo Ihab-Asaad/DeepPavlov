@@ -76,10 +76,6 @@ Several pre-trained models are available and presented in Table below.
 +                  +                     +      +----------------------------------------------------------------------------------------------------+             +------------------+-----------------+-----------+
 |                  |                     |      | :config:`English BERT <classifiers/insults_kaggle_bert.json>`                                      |             | 0.9255           | 0.8612          |  1200 Mb  |
 +------------------+---------------------+      +----------------------------------------------------------------------------------------------------+-------------+------------------+-----------------+-----------+
-| 5 topics         | `AG News`_          |      | :config:`Wiki emb <classifiers/topic_ag_news.json>`                                                | Accuracy    | 0.8922           | 0.9059          |  8.5 Gb   |
-+------------------+---------------------+      +----------------------------------------------------------------------------------------------------+-------------+------------------+-----------------+-----------+
-| Intent           | `Yahoo-L31`_        |      | :config:`Yahoo-L31 on conversational BERT <classifiers/yahoo_convers_vs_info_bert.json>`           | ROC-AUC     | 0.9436           |   --            |  1200 Mb  |
-+------------------+---------------------+      +----------------------------------------------------------------------------------------------------+-------------+------------------+-----------------+-----------+
 | Sentiment        | `SST`_              |      | :config:`5-classes SST on conversational BERT <classifiers/sentiment_sst_conv_bert.json>`          | Accuracy    | 0.6456           | 0.6715          |  400 Mb   |
 +------------------+---------------------+------+----------------------------------------------------------------------------------------------------+-------------+------------------+-----------------+-----------+
 | Sentiment        | `Twitter mokoron`_  | Ru   | :config:`RuWiki+Lenta emb w/o preprocessing <classifiers/sentiment_twitter.json>`                  |             | 0.9965           | 0.9961          |  6.2 Gb   |
@@ -93,8 +89,6 @@ Several pre-trained models are available and presented in Table below.
 |                  |                     |      | :config:`Conversational DistilRuBERT-tiny <classifiers/rusentiment_convers_distilrubert_2L.json>`  |             |  0.703 ± 0.0031  | 0.7348 ± 0.0028 |  690 Mb   |
 +                  +                     +      +----------------------------------------------------------------------------------------------------+             +------------------+-----------------+-----------+
 |                  |                     |      | :config:`Conversational DistilRuBERT-base <classifiers/rusentiment_convers_distilrubert_6L.json>`  |             |  0.7376 ± 0.0045 | 0.7645 ± 0.035  |  1.0 Gb   |
-+------------------+---------------------+      +----------------------------------------------------------------------------------------------------+-------------+------------------+-----------------+-----------+
-| Intent           | Ru like`Yahoo-L31`_ |      | :config:`Conversational vs Informational on ELMo <classifiers/yahoo_convers_vs_info.json>`         | ROC-AUC     | 0.9412           |   --            |  700 Mb   |
 +------------------+---------------------+------+----------------------------------------------------------------------------------------------------+-------------+------------------+-----------------+-----------+
 
 .. [1] Coucke A. et al. Snips voice platform: an embedded spoken language understanding system for private-by-design voice interfaces //arXiv preprint arXiv:1805.10190. – 2018.
