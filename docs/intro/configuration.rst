@@ -83,7 +83,7 @@ from ``metadata.variables`` element:
           {
             "in": ["x"],
             "out": ["y_predicted"],
-            "config_path": "{CONFIGS_PATH}/classifiers/intents_snips.json"
+            "config_path": "{CONFIGS_PATH}/classifiers/intents_dstc2_bert.json"
           }
         ],
         "out": ["y_predicted"]

@@ -72,14 +72,6 @@ Several pre-trained models are available and presented in Table below.
 +==================+=====================+======+====================================================================================================+=============+==================+=================+===========+
 | 28 intents       | `DSTC 2`_           | En   | :config:`BERT <classifiers/intents_dstc2_bert.json>`                                               | Accuracy    | 0.9673           | 0.9636          |  800 Mb   |
 +------------------+---------------------+      +----------------------------------------------------------------------------------------------------+-------------+------------------+-----------------+-----------+
-| 7 intents        | `SNIPS-2017`_ [1]_  |      | :config:`DSTC 2 emb <classifiers/intents_snips.json>`                                              | F1-macro    | 0.8591           |    --           |  800 Mb   |
-+                  +                     +      +----------------------------------------------------------------------------------------------------+             +------------------+-----------------+-----------+
-|                  |                     |      | :config:`Wiki emb <classifiers/intents_snips_big.json>`                                            |             | 0.9820           |    --           |  8.5 Gb   |
-+                  +                     +      +----------------------------------------------------------------------------------------------------+             +------------------+-----------------+-----------+
-|                  |                     |      | :config:`Tfidf + SelectKBest + PCA + Wiki emb <classifiers/intents_snips_sklearn.json>`            |             | 0.9673           |    --           |  8.6 Gb   |
-+                  +                     +      +----------------------------------------------------------------------------------------------------+             +------------------+-----------------+-----------+
-|                  |                     |      | :config:`Wiki emb weighted by Tfidf <classifiers/intents_snips_tfidf_weighted.json>`               |             | 0.9786           |    --           |  8.5 Gb   |
-+------------------+---------------------+      +----------------------------------------------------------------------------------------------------+-------------+------------------+-----------------+-----------+
 | Insult detection | `Insults`_          |      | :config:`Reddit emb <classifiers/insults_kaggle.json>`                                             | ROC-AUC     | 0.9263           | 0.8556          |  6.2 Gb   |
 +                  +                     +      +----------------------------------------------------------------------------------------------------+             +------------------+-----------------+-----------+
 |                  |                     |      | :config:`English BERT <classifiers/insults_kaggle_bert.json>`                                      |             | 0.9255           | 0.8612          |  1200 Mb  |
@@ -558,7 +550,7 @@ Examples of some models
 
    .. code-block:: bash
 
-      python -m deeppavlov predict intents_snips -d --batch-size 15 < /data/in.txt > /data/out.txt
+      python -m deeppavlov predict intents_dstc2_bert -d --batch-size 15 < /data/in.txt > /data/out.txt
 
 
 View `video demo <https://youtu.be/yzoiCa_sMuY>`__ of deployment of a

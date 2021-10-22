@@ -27,18 +27,18 @@ Command line
     python -m deeppavlov install <path_to_config>
 
 where ``<path_to_config>`` is a path to one of the :config:`provided config files <classifiers>`
-or its name without an extension, for example :config:`"intents_snips" <classifiers/intents_snips.json>`.
+or its name without an extension, for example :config:`"intents_dstc2_bert" <classifiers/intents_dstc2_bert.json>`.
 
 To download pre-trained models, vocabs, embeddings on the dataset of interest one should run the following command
 providing corresponding name of the config file (see above)
-or provide flag ``-d`` for commands like ``interact``, ``telegram``, ``train``, ``evaluate``.:
+or provide flag ``-d`` for commands like ``interact``, ``telegram``, ``train``, ``evaluate``:
 
 .. code:: bash
 
     python -m deeppavlov download  <path_to_config>
 
 where ``<path_to_config>`` is a path to one of the :config:`provided config files <classifiers>`
-or its name without an extension, for example :config:`"intents_snips" <classifiers/intents_snips.json>`.
+or its name without an extension, for example :config:`"intents_dstc2_bert" <classifiers/intents_dstc2_bert.json>`.
 
 When using KerasClassificationModel for **Windows** platforms one have to set `KERAS_BACKEND` to `tensorflow`:
 
@@ -53,7 +53,7 @@ When using KerasClassificationModel for **Windows** platforms one have to set `K
     python -m deeppavlov interact <path_to_config> [-d]
 
 where ``<path_to_config>`` is a path to one of the :config:`provided config files <classifiers>`
-or its name without an extension, for example :config:`"intents_snips" <classifiers/intents_snips.json>`.
+or its name without an extension, for example :config:`"intents_dstc2_bert" <classifiers/intents_dstc2_bert.json>`.
 With the optional ``-d`` parameter all the data required to run selected pipeline will be **downloaded**.
 
 **TRAIN** After preparing the config file (including change of dataset, pipeline elements or parameters)
@@ -73,7 +73,7 @@ Then training can be run in the following way:
     python -m deeppavlov train <path_to_config>
 
 where ``<path_to_config>`` is a path to one of the :config:`provided config files <classifiers>`
-or its name without an extension, for example :config:`"intents_snips" <classifiers/intents_snips.json>`.
+or its name without an extension, for example :config:`"intents_dstc2_bert" <classifiers/intents_dstc2_bert.json>`.
 With the optional ``-d`` parameter all the data required to run selected pipeline will be **downloaded**.
 
 Python code
@@ -96,7 +96,7 @@ Then one can build and interact a model from configuration file:
 
     from deeppavlov import build_model, configs
 
-    CONFIG_PATH = configs.classifiers.intents_snips  # could also be configuration dictionary or string path or `pathlib.Path` instance
+    CONFIG_PATH = configs.classifiers.intents_dstc2_bert  # could also be configuration dictionary or string path or `pathlib.Path` instance
 
     model = build_model(CONFIG_PATH, download=True)  # in case of necessity to download some data
 
@@ -112,7 +112,7 @@ Then one can build and interact a model from configuration file:
 
     from deeppavlov import train_model, configs
 
-    CONFIG_PATH = configs.classifiers.intents_snips  # could also be configuration dictionary or string path or `pathlib.Path` instance
+    CONFIG_PATH = configs.classifiers.intents_dstc2_bert  # could also be configuration dictionary or string path or `pathlib.Path` instance
 
     model = train_model(CONFIG_PATH, download=True)  # in case of necessity to download some data
 
@@ -188,7 +188,7 @@ Therefore, for sklearn component classifier one should set ``ensure_list_output`
 Pre-trained models
 ------------------
 
-We also provide with **pre-trained models** for classification on DSTC 2 dataset, SNIPS dataset, "AG News" dataset,
+We also provide with **pre-trained models** for classification on DSTC 2 dataset, "AG News" dataset,
 "Detecting Insults in Social Commentary", Twitter sentiment in Russian dataset.
 
 `DSTC 2 dataset <http://camdial.org/~mh521/dstc/>`__ does not initially contain information about **intents**,
@@ -225,24 +225,6 @@ In the original dataset this user reply has characteristics
 
 This message contains two intents ``(thankyou, bye)``. Train, valid and
 test division is the same as on web-site.
-
-`SNIPS dataset <https://github.com/snipsco/nlu-benchmark/tree/master/2017-06-custom-intent-engines>`__
-contains **intent classification** task for 7 intents (approximately 2.4
-samples per intent):
-
--  GetWeather
--  BookRestaurant
--  PlayMusic
--  AddToPlaylist
--  RateBook
--  SearchScreeningEvent
--  SearchCreativeWork
-
-Initially, classification model on SNIPS dataset [7]_ was trained only as an
-example of usage that is why we provide pre-trained model for SNIPS with
-embeddings trained on DSTC-2 dataset that is not the best choice for
-this task. Train set is divided to train and validation sets to
-illustrate ``basic_classification_iterator`` work.
 
 `Detecting Insults in Social Commentary dataset <https://www.kaggle.com/c/detecting-insults-in-social-commentary>`__
 contains binary classification task for **detecting insults** for
@@ -301,14 +283,6 @@ The reviews are long enough (cut up to 200 subtokens).
 +==================+====================+======+=================================================================================================+=============+========+========+===========+
 | 28 intents       | `DSTC 2`_          | En   | :config:`BERT <classifiers/intents_dstc2_bert.json>`                                            | Accuracy    | 0.9673 | 0.9636 |  800 Mb   |
 +------------------+--------------------+      +-------------------------------------------------------------------------------------------------+-------------+--------+--------+-----------+
-| 7 intents        | `SNIPS-2017`_ [7]_ |      | :config:`DSTC 2 emb <classifiers/intents_snips.json>`                                           | F1-macro    | 0.8591 |    --  |  800 Mb   |
-+                  +                    +      +-------------------------------------------------------------------------------------------------+             +--------+--------+-----------+
-|                  |                    |      | :config:`Wiki emb <classifiers/intents_snips_big.json>`                                         |             | 0.9820 |    --  |  8.5 Gb   |
-+                  +                    +      +-------------------------------------------------------------------------------------------------+             +--------+--------+-----------+
-|                  |                    |      | :config:`Tfidf + SelectKBest + PCA + Wiki emb <classifiers/intents_snips_sklearn.json>`         |             | 0.9673 |    --  |  8.6 Gb   |
-+                  +                    +      +-------------------------------------------------------------------------------------------------+             +--------+--------+-----------+
-|                  |                    |      | :config:`Wiki emb weighted by Tfidf <classifiers/intents_snips_tfidf_weighted.json>`            |             | 0.9786 |    --  |  8.5 Gb   |
-+------------------+--------------------+      +-------------------------------------------------------------------------------------------------+-------------+--------+--------+-----------+
 | Insult detection | `Insults`_         |      | :config:`Reddit emb <classifiers/insults_kaggle.json>`                                          | ROC-AUC     | 0.9263 | 0.8556 |  6.2 Gb   |
 +                  +                    +      +-------------------------------------------------------------------------------------------------+             +--------+--------+-----------+
 |                  |                    |      | :config:`English BERT <classifiers/insults_kaggle_bert.json>`                                   |             | 0.9255 | 0.8612 |  1200 Mb  |
@@ -349,7 +323,6 @@ The reviews are long enough (cut up to 200 subtokens).
 +------------------+--------------------+------+-------------------------------------------------------------------------------------------------+-------------+--------+--------+-----------+
 
 .. _`DSTC 2`: http://camdial.org/~mh521/dstc/
-.. _`SNIPS-2017`: https://github.com/snipsco/nlu-benchmark/tree/master/2017-06-custom-intent-engines
 .. _`Insults`: https://www.kaggle.com/c/detecting-insults-in-social-commentary
 .. _`AG News`: https://www.di.unipi.it/~gulli/AG_corpus_of_news_articles.html
 .. _`Twitter mokoron`: http://study.mokoron.com/
@@ -418,43 +391,13 @@ Then training process can be run in the same way:
 
     python -m deeppavlov train <path_to_config>
 
-Comparison
-----------
-
-The comparison of the presented model is given on **SNIPS** dataset [7]_. The
-evaluation of model scores was conducted in the same way as in [3]_ to
-compare with the results from the report of the authors of the dataset.
-The results were achieved with tuning of parameters and embeddings
-trained on Reddit dataset.
-
-+------------------------+-----------------+------------------+---------------+--------------+--------------+----------------------+------------------------+
-| Model                  | AddToPlaylist   | BookRestaurant   | GetWheather   | PlayMusic    | RateBook     | SearchCreativeWork   | SearchScreeningEvent   |
-+========================+=================+==================+===============+==============+==============+======================+========================+
-| api.ai                 | 0.9931          | 0.9949           | 0.9935        | 0.9811       | 0.9992       | 0.9659               | 0.9801                 |
-+------------------------+-----------------+------------------+---------------+--------------+--------------+----------------------+------------------------+
-| ibm.watson             | 0.9931          | 0.9950           | 0.9950        | 0.9822       | 0.9996       | 0.9643               | 0.9750                 |
-+------------------------+-----------------+------------------+---------------+--------------+--------------+----------------------+------------------------+
-| microsoft.luis         | 0.9943          | 0.9935           | 0.9925        | 0.9815       | 0.9988       | 0.9620               | 0.9749                 |
-+------------------------+-----------------+------------------+---------------+--------------+--------------+----------------------+------------------------+
-| wit.ai                 | 0.9877          | 0.9913           | 0.9921        | 0.9766       | 0.9977       | 0.9458               | 0.9673                 |
-+------------------------+-----------------+------------------+---------------+--------------+--------------+----------------------+------------------------+
-| snips.ai               | 0.9873          |       0.9921     | 0.9939        | 0.9729       | 0.9985       | 0.9455               | 0.9613                 |
-+------------------------+-----------------+------------------+---------------+--------------+--------------+----------------------+------------------------+
-| recast.ai              | 0.9894          | 0.9943           | 0.9910        | 0.9660       | 0.9981       | 0.9424               | 0.9539                 |
-+------------------------+-----------------+------------------+---------------+--------------+--------------+----------------------+------------------------+
-| amazon.lex             | 0.9930          | 0.9862           | 0.9825        | 0.9709       | 0.9981       | 0.9427               | 0.9581                 |
-+------------------------+-----------------+------------------+---------------+--------------+--------------+----------------------+------------------------+
-+------------------------+-----------------+------------------+---------------+--------------+--------------+----------------------+------------------------+
-| Shallow-and-wide CNN   | **0.9956**      | **0.9973**       | **0.9968**    | **0.9871**   | **0.9998**   | **0.9752**           | **0.9854**             |
-+------------------------+-----------------+------------------+---------------+--------------+--------------+----------------------+------------------------+
-
 How to improve the performance
 ------------------------------
 
 -  One can use FastText [4]_ to train embeddings that are better suited
    for considered datasets.
 -  One can use some custom preprocessing to clean texts.
--  One can use ELMo [5]_ or BERT [8]_.
+-  One can use ELMo [5]_ or BERT [7]_.
 -  All the parameters should be tuned on the validation set.
 
 References
@@ -472,6 +415,4 @@ References
 
 .. [6] Smith L. N., Topin N. Super-convergence: Very fast training of residual networks using large learning rates. – 2018.
 
-.. [7] Coucke A. et al. Snips voice platform: an embedded spoken language understanding system for private-by-design voice interfaces //arXiv preprint arXiv:1805.10190. – 2018.
-
-.. [8] Devlin J. et al. Bert: Pre-training of deep bidirectional transformers for language understanding //arXiv preprint arXiv:1810.04805. – 2018.
+.. [7] Devlin J. et al. Bert: Pre-training of deep bidirectional transformers for language understanding //arXiv preprint arXiv:1810.04805. – 2018.
