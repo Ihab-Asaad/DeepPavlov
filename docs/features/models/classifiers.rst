@@ -6,7 +6,7 @@ which are implemented as a number of different **neural networks** or **sklearn 
 Models can be used for binary, multi-class or multi-label classification.
 List of available classifiers (more info see below):
 
-* **BERT classifier** (see :doc:`here </apiref/models/bert>`) builds BERT [8]_ architecture for classification problem on **TensorFlow** or on **PyTorch**.
+* **BERT classifier** (see :doc:`here </apiref/models/bert>`) builds BERT [5]_ architecture for classification problem on **TensorFlow** or on **PyTorch**.
 
 * **Keras classifier** (see :doc:`here </apiref/models/classifiers>`) builds neural network on Keras with tensorflow backend.
 
@@ -121,7 +121,7 @@ Then one can build and interact a model from configuration file:
 BERT models
 -----------
 
-BERT (Bidirectional Encoder Representations from Transformers) [8]_ is a Transformer pre-trained on masked language model
+BERT (Bidirectional Encoder Representations from Transformers) [5]_ is a Transformer pre-trained on masked language model
 and next sentence prediction tasks. This approach showed state-of-the-art results on a wide range of NLP tasks in
 English.
 
@@ -365,10 +365,10 @@ Then training process can be run in the same way:
 How to improve the performance
 ------------------------------
 
--  One can use FastText [4]_ to train embeddings that are better suited
+-  One can use FastText [3]_ to train embeddings that are better suited
    for considered datasets.
 -  One can use some custom preprocessing to clean texts.
--  One can use ELMo [5]_ or BERT [7]_.
+-  One can use ELMo [4]_ or BERT [5]_.
 -  All the parameters should be tuned on the validation set.
 
 References
@@ -378,12 +378,8 @@ References
 
 .. [2] Ю. В. Рубцова. Построение корпуса текстов для настройки тонового классификатора // Программные продукты и системы, 2015, №1(109), –С.72-78
 
-.. [3] https://www.slideshare.net/KonstantinSavenkov/nlu-intent-detection-benchmark-by-intento-august-2017
+.. [3] P. Bojanowski\ *, E. Grave*, A. Joulin, T. Mikolov, Enriching Word Vectors with Subword Information.
 
-.. [4] P. Bojanowski\ *, E. Grave*, A. Joulin, T. Mikolov, Enriching Word Vectors with Subword Information.
+.. [4] Peters, Matthew E., et al. "Deep contextualized word representations." arXiv preprint arXiv:1802.05365 (2018).
 
-.. [5] Peters, Matthew E., et al. "Deep contextualized word representations." arXiv preprint arXiv:1802.05365 (2018).
-
-.. [6] Smith L. N., Topin N. Super-convergence: Very fast training of residual networks using large learning rates. – 2018.
-
-.. [7] Devlin J. et al. Bert: Pre-training of deep bidirectional transformers for language understanding //arXiv preprint arXiv:1810.04805. – 2018.
+.. [5] Devlin J. et al. Bert: Pre-training of deep bidirectional transformers for language understanding //arXiv preprint arXiv:1810.04805. – 2018.

@@ -91,9 +91,6 @@ Several pre-trained models are available and presented in Table below.
 |                  |                     |      | :config:`Conversational DistilRuBERT-base <classifiers/rusentiment_convers_distilrubert_6L.json>`  |             |  0.7376 ± 0.0045 | 0.7645 ± 0.035  |  1.0 Gb   |
 +------------------+---------------------+------+----------------------------------------------------------------------------------------------------+-------------+------------------+-----------------+-----------+
 
-.. [1] Coucke A. et al. Snips voice platform: an embedded spoken language understanding system for private-by-design voice interfaces //arXiv preprint arXiv:1805.10190. – 2018.
-.. [2] Smith L. N., Topin N. Super-convergence: Very fast training of residual networks using large learning rates. – 2018.
-
 .. _`DSTC 2`: http://camdial.org/~mh521/dstc/
 .. _`SNIPS-2017`: https://github.com/snipsco/nlu-benchmark/tree/master/2017-06-custom-intent-engines
 .. _`Insults`: https://www.kaggle.com/c/detecting-insults-in-social-commentary
