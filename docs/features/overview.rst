@@ -409,36 +409,6 @@ You can build different pipelines based on: tf-idf, weighted fasttext, cosine si
 Skills
 ------
 
-Goal-oriented bot :doc:`[docs] </features/skills/go_bot>`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Based on Hybrid Code Networks (HCNs) architecture from `Jason D. Williams, Kavosh Asadi, 
-Geoffrey Zweig, Hybrid Code Networks: practical and efficient end-to-end dialog control 
-with supervised and reinforcement learning – 2017 <https://arxiv.org/abs/1702.03274>`__.
-It allows to predict responses in a goal-oriented dialog. The model is
-customizable: embeddings, slot filler and intent classifier can be switched on and off on demand.
-
-Available pre-trained models and their comparison with existing benchmarks:
-
-+-----------------------------------+------+------------------------------------------------------------------------------------+---------------+-----------+---------------+
-| Dataset                           | Lang | Model                                                                              | Metric        | Test      | Downloads     |
-+===================================+======+====================================================================================+===============+===========+===============+
-| `DSTC 2`_                         | En   | :config:`basic bot <go_bot/gobot_dstc2_minimal.json>`                              | Turn Accuracy | 0.380     | 10 Mb         |
-+ (:ref:`modified <dstc2_dataset>`) +      +------------------------------------------------------------------------------------+               +-----------+---------------+
-|                                   |      | :config:`bot with slot filler <go_bot/gobot_dstc2.json>`                           |               | 0.542     | 400 Mb        |
-+                                   +      +------------------------------------------------------------------------------------+               +-----------+---------------+
-|                                   |      | :config:`bot with slot filler, intents & attention <go_bot/gobot_dstc2_best.json>` |               | **0.553** | 8.5 Gb        |
-+-----------------------------------+      +------------------------------------------------------------------------------------+               +-----------+---------------+
-| `DSTC 2`_                         |      | Bordes and Weston (2016)                                                           |               | 0.411     | --            |
-+                                   +      +------------------------------------------------------------------------------------+               +-----------+---------------+
-|                                   |      | Eric and Manning (2017)                                                            |               | 0.480     | --            |
-+                                   +      +------------------------------------------------------------------------------------+               +-----------+---------------+
-|                                   |      | Perez and Liu (2016)                                                               |               | 0.487     | --            |
-+                                   +      +------------------------------------------------------------------------------------+               +-----------+---------------+
-|                                   |      | Williams et al. (2017)                                                             |               | **0.556** | --            |
-+-----------------------------------+------+------------------------------------------------------------------------------------+---------------+-----------+---------------+
-
-
 ODQA :doc:`[docs] </features/skills/odqa>`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -481,24 +451,6 @@ Word vectors for the Russian language trained on joint `Russian Wikipedia <https
 
 Examples of some models
 ---------------------------
-
--  Run goal-oriented bot with Telegram interface:
-
-   .. code-block:: bash
-
-      python -m deeppavlov telegram gobot_dstc2 -d -t <TELEGRAM_TOKEN>
-
--  Run goal-oriented bot with console interface:
-
-   .. code-block:: bash
-
-      python -m deeppavlov interact gobot_dstc2 -d
-
--  Run goal-oriented bot with REST API:
-
-   .. code-block:: bash
-
-      python -m deeppavlov riseapi gobot_dstc2 -d
 
 -  Run slot-filling model with Telegram interface:
 
