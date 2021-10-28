@@ -98,11 +98,6 @@ PARAMS = {
                 ("helllo", ("hello",)),
                 ("datha", ("data",))
             ],
-        ("spelling_correction/brillmoore_kartaslov_ru.json", "error_model", ('IP',)):
-            [
-                ("преведствую", ("приветствую",)),
-                ("я джва года дду эту игру", ("я два года жду эту игру",))
-            ],
         ("spelling_correction/levenshtein_corrector_ru.json", "error_model", ('IP',)):
             [
                 ("преветствую", ("приветствую",)),
