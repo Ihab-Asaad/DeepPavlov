@@ -6,8 +6,6 @@
 
 * Tutorial for intent classifier [[notebook]](classification_tutorial.ipynb) [[colab]](https://colab.research.google.com/github/deepmipt/DeepPavlov/blob/master/examples/classification_tutorial.ipynb)
 
-* Morphotagger model usage example [[notebook]](morphotagger_example.ipynb) [[colab]](https://colab.research.google.com/github/deepmipt/DeepPavlov/blob/master/examples/morphotagger_example.ipynb)
-
 * Pseudo-labeling for classication task [[notebook]](Pseudo-labeling%20for%20classification.ipynb) [[colab]](https://colab.research.google.com/github/deepmipt/DeepPavlov/blob/master/examples/Pseudo-labeling%20for%20classification.ipynb)
 
 * Optimal learning rate search in DeepPavlov [[notebook]](super_convergence_tutorial.ipynb) [[colab]](https://colab.research.google.com/github/deepmipt/DeepPavlov/blob/master/examples/super_convergence_tutorial.ipynb)

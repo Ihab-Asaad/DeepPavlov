@@ -318,14 +318,9 @@ model. This model outputs empty string in case if there is no answer in context.
 Morphological tagging model :doc:`[docs] </features/models/morphotagger>`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We have a BERT-based model for Russian and character-based models for 11 languages.
-The character model is based on `Heigold et al., 2017. An extensive empirical evaluation of
-character-based morphological tagging for 14 languages <http://www.aclweb.org/anthology/E17-1048>`__.
-It is a state-of-the-art model for Russian and near state of the art for several other languages.
+We have a BERT-based model for Russian language.
 Model takes as input tokenized sentences and outputs the corresponding
 sequence of morphological labels in `UD format <http://universaldependencies.org/format.html>`__.
-The table below contains word and sentence accuracy on UD2.0 datasets.
-For more scores see :doc:`full table </features/models/morphotagger>`.
 
 .. table::
     :widths: auto
@@ -339,32 +334,8 @@ For more scores see :doc:`full table </features/models/morphotagger>`.
     |                      +--------------------------------------------------------------------------------------------------------------+---------------+----------------+--------------------+
     |                      | :config:`BERT-based model <morpho_tagger/BERT/morpho_ru_syntagrus_bert.json>`                                |    97.83      |     72.02      |       661          |
     +----------------------+--------------------------------------------------------------------------------------------------------------+---------------+----------------+--------------------+
-    |                      | `Pymorphy`_ + `russian_tagsets`_ (first tag)                                                                 |     60.93     |      0.00      |                    |
-    +                      +--------------------------------------------------------------------------------------------------------------+---------------+----------------+--------------------+
-    | `UD2.0`_ (Russian)   | `UD Pipe 1.2`_ (Straka et al., 2017)                                                                         |     93.57     |     43.04      |                    |
-    +                      +--------------------------------------------------------------------------------------------------------------+---------------+----------------+--------------------+
-    |                      | :config:`Basic model <morpho_tagger/UD2.0/ru_syntagrus/morpho_ru_syntagrus.json>`                            |     95.17     |     50.58      |        48.7        |
-    +                      +--------------------------------------------------------------------------------------------------------------+---------------+----------------+--------------------+
-    |                      | :config:`Pymorphy-enhanced model <morpho_tagger/UD2.0/ru_syntagrus/morpho_ru_syntagrus_pymorphy.json>`       |   **96.23**   |     58.00      |        48.7        |
-    +----------------------+--------------------------------------------------------------------------------------------------------------+---------------+----------------+--------------------+
-    | `UD2.0`_ (Czech)     | `UD Pipe 1.2`_ (Straka et al., 2017)                                                                         |     91.86     |     42.28      |                    |
-    |                      +--------------------------------------------------------------------------------------------------------------+---------------+----------------+--------------------+
-    |                      | :config:`Basic model <morpho_tagger/UD2.0/morpho_cs.json>`                                                   |   **94.35**   |     51.56      |        41.8        |
-    +----------------------+--------------------------------------------------------------------------------------------------------------+---------------+----------------+--------------------+
-    | `UD2.0`_ (English)   | `UD Pipe 1.2`_ (Straka et al., 2017)                                                                         |     92.89     |     55.75      |                    |
-    |                      +--------------------------------------------------------------------------------------------------------------+---------------+----------------+--------------------+
-    |                      | :config:`Basic model <morpho_tagger/UD2.0/morpho_en.json>`                                                   |   **93.00**   |     55.18      |        16.9        |
-    +----------------------+--------------------------------------------------------------------------------------------------------------+---------------+----------------+--------------------+
-    | `UD2.0`_ (German)    | `UD Pipe 1.2`_ (Straka et al., 2017)                                                                         |     76.65     |     10.24      |                    |
-    |                      +--------------------------------------------------------------------------------------------------------------+---------------+----------------+--------------------+
-    |                      | :config:`Basic model <morpho_tagger/UD2.0/morpho_de.json>`                                                   |   **83.83**   |     15.25      |        18.6        |
-    +----------------------+--------------------------------------------------------------------------------------------------------------+---------------+----------------+--------------------+
 
-.. _`Pymorphy`: https://pymorphy2.readthedocs.io/en/latest/
-.. _`russian_tagsets`: https://github.com/kmike/russian-tagsets
-.. _`UD2.0`: https://lindat.mff.cuni.cz/repository/xmlui/handle/11234/1-1983
 .. _`UD2.3`: http://hdl.handle.net/11234/1-2895
-.. _`UD Pipe 1.2`: http://ufal.mff.cuni.cz/udpipe
 .. _`UD Pipe 2.3`: http://ufal.mff.cuni.cz/udpipe
 .. _`UD Pipe Future`: https://github.com/CoNLL-UD-2018/UDPipe-Future
 
