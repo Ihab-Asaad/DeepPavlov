@@ -82,7 +82,6 @@
   "morpho_tagger": "deeppavlov.models.morpho_tagger.morpho_tagger:MorphoTagger",
   "morphotagger_dataset": "deeppavlov.dataset_iterators.morphotagger_iterator:MorphoTaggerDatasetIterator",
   "morphotagger_dataset_reader": "deeppavlov.dataset_readers.morphotagging_dataset_reader:MorphotaggerDatasetReader",
-  "mpm_nn": "deeppavlov.models.ranking.mpm_siamese_network:MPMSiameseNetwork",
   "mt_bert": "deeppavlov.models.multitask_bert.multitask_bert:MultiTaskBert",
   "mt_bert_classification_task": "deeppavlov.models.multitask_bert.multitask_bert:MTBertClassificationTask",
   "mt_bert_reuser": "deeppavlov.models.multitask_bert.multitask_bert:MTBertReUser",

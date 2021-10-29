@@ -237,10 +237,6 @@ PARAMS = {
         ("embedder/elmo_ru_news.json", "embedder_ru_news", ('IP',)): [ONE_ARGUMENT_INFER_CHECK],
     },
     "ranking": {
-        ("ranking/ranking_ubuntu_v2_mt.json", "ranking", ('TI',)): [ONE_ARGUMENT_INFER_CHECK],
-        ("ranking/ranking_ubuntu_v2_mt_interact.json", "ranking", ('IP',)): [ONE_ARGUMENT_INFER_CHECK],
-        ("ranking/paraphrase_ident_paraphraser.json", "ranking", ('TI',)): [ONE_ARGUMENT_INFER_CHECK],
-        ("ranking/paraphrase_ident_paraphraser_interact.json", "ranking", ('IP',)): [ONE_ARGUMENT_INFER_CHECK],
         ("ranking/ranking_ubuntu_v2_bert_uncased.json", "ranking", ('TI',)): [ONE_ARGUMENT_INFER_CHECK],
         ("ranking/ranking_ubuntu_v2_bert_sep.json", "ranking", ('TI',)): [ONE_ARGUMENT_INFER_CHECK],
         ("ranking/ranking_ubuntu_v2_bert_sep_interact.json", "ranking", ('IP',)): [ONE_ARGUMENT_INFER_CHECK],

@@ -120,15 +120,15 @@ Before using the model make sure that all required packages are installed runnin
 
 .. code:: bash
 
-    python -m deeppavlov install paraphrase_ident_paraphraser
+    python -m deeppavlov install paraphraser_bert
 
-To train the model on the `paraphraser.ru`_ dataset with fasttext embeddings one can use the following code in python:
+To train the model on the `paraphraser.ru`_ dataset one can use the following code in python:
 
 .. code:: python
 
     from deeppavlov import configs, train_model
 
-    para_model = train_model(configs.ranking.paraphrase_ident_paraphraser, download=True)
+    para_model = train_model('paraphraser_bert', download=True)
 
 Training and inference on your own data
 ---------------------------------------
@@ -144,11 +144,10 @@ three separate files in the default data format described below:
 binary, i.e. 1 or 0 corresponding to the correct or incorrect ``response`` for the given ``context``, or it can be multi-class label.
 In the latter case, each unique ``context`` has the unique class ``label`` and the only correct ``response`` is indicated for each ``context``.
 Currently, all ranking and paraphrase identification models support `cross-entropy loss` training with binary labels.
-Some models, such as :class:`~deeppavlov.models.ranking.bilstm_siamese_network.BiLSTMSiameseNetwork`,
-:class:`~deeppavlov.models.ranking.bilstm_gru_siamese_network.BiLSTMGRUSiameseNetwork`
-and :class:`~deeppavlov.models.ranking.mpm_siamese_network.MPMSiameseNetwork` support also training with `triplet loss`
-(the parameter ``triplet_loss`` should be set to ``true`` for the model in the configuration JSON file in this case)
-which can give potentially few percent of performance over the `cross-entropy loss` training.
+Some models, such as :class:`~deeppavlov.models.ranking.bilstm_siamese_network.BiLSTMSiameseNetwork` and
+:class:`~deeppavlov.models.ranking.bilstm_gru_siamese_network.BiLSTMGRUSiameseNetwork` support also training with
+`triplet loss` (the parameter ``triplet_loss`` should be set to ``true`` for the model in the configuration JSON file
+in this case) which can give potentially few percent of performance over the `cross-entropy loss` training.
 
 If the model with multi-turn context is used
 (such as :class:`~deeppavlov.models.ranking.bilstm_gru_siamese_network.BiLSTMGRUSiameseNetwork`
