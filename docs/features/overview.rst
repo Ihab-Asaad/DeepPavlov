@@ -42,22 +42,7 @@ which is inspired by Bi-LSTM+CRF architecture from https://arxiv.org/pdf/1603.01
 |                                                         |       | :config:`ner_conll2003_torch_bert.json <ner/ner_conll2003_torch_bert.json>`                |    88.6     |
 +                                                         +       +--------------------------------------------------------------------------------------------+-------------+
 |                                                         |       | :config:`ner_conll2003.json <ner/ner_conll2003.json>`                                      |    89.9     |
-+---------------------------------------------------------+       +--------------------------------------------------------------------------------------------+-------------+
-| DSTC2                                                   |       | :config:`ner_dstc2.json <ner/ner_dstc2.json>`                                              |    97.1     |
 +---------------------------------------------------------+-------+--------------------------------------------------------------------------------------------+-------------+
-
-Slot filling models :doc:`[docs] </features/models/slot_filling>`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Based on fuzzy Levenshtein search to extract normalized slot values from text. The models either rely on NER results
-or perform needle in haystack search.
-
-+---------------------------------------------------------------------------------------------------------------------------+------------------+
-| Dataset                                                                                                                   |  Slots Accuracy  |
-+===========================================================================================================================+==================+
-| :config:`DSTC 2 <ner/slotfill_dstc2.json>`                                                                                |       98.85      |
-+---------------------------------------------------------------------------------------------------------------------------+------------------+
-
 
 Classification model :doc:`[docs] </features/models/classifiers>`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -70,9 +55,7 @@ Several pre-trained models are available and presented in Table below.
 +------------------+---------------------+------+----------------------------------------------------------------------------------------------------+-------------+------------------+-----------------+-----------+
 | Task             | Dataset             | Lang | Model                                                                                              | Metric      | Valid            | Test            | Downloads |
 +==================+=====================+======+====================================================================================================+=============+==================+=================+===========+
-| 28 intents       | `DSTC 2`_           | En   | :config:`BERT <classifiers/intents_dstc2_bert.json>`                                               | Accuracy    | 0.9673           | 0.9636          |  800 Mb   |
-+------------------+---------------------+      +----------------------------------------------------------------------------------------------------+-------------+------------------+-----------------+-----------+
-| Insult detection | `Insults`_          |      | :config:`English BERT on PyTorch <classifiers/insults_kaggle_bert_torch.json>`                     | ROC-AUC     | 0.9329           | 0.877           |  1.1 Gb   |
+| Insult detection | `Insults`_          | En   | :config:`English BERT on PyTorch <classifiers/insults_kaggle_bert_torch.json>`                     | ROC-AUC     | 0.9329           | 0.877           |  1.1 Gb   |
 +                  +                     +      +----------------------------------------------------------------------------------------------------+             +------------------+-----------------+-----------+
 |                  |                     |      | :config:`English BERT <classifiers/insults_kaggle_bert.json>`                                      |             | 0.9255           | 0.8612          |  1200 Mb  |
 +------------------+---------------------+      +----------------------------------------------------------------------------------------------------+-------------+------------------+-----------------+-----------+
@@ -372,6 +355,15 @@ You can build different pipelines based on: tf-idf, weighted fasttext, cosine si
 Skills
 ------
 
+Goal-oriented bot :doc:`[docs] </features/skills/go_bot>`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Based on Hybrid Code Networks (HCNs) architecture from `Jason D. Williams, Kavosh Asadi,
+Geoffrey Zweig, Hybrid Code Networks: practical and efficient end-to-end dialog control
+with supervised and reinforcement learning – 2017 <https://arxiv.org/abs/1702.03274>`__.
+It allows to predict responses in a goal-oriented dialog. The model is
+customizable: embeddings, slot filler and intent classifier can be switched on and off on demand.
+
 ODQA :doc:`[docs] </features/skills/odqa>`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -413,29 +405,29 @@ Word vectors for the Russian language trained on joint `Russian Wikipedia <https
 Examples of some models
 ---------------------------
 
--  Run slot-filling model with Telegram interface:
+-  Run insults detection model with Telegram interface:
 
    .. code-block:: bash
 
-      python -m deeppavlov telegram slotfill_dstc2 -d -t <TELEGRAM_TOKEN>
+      python -m deeppavlov telegram insults_kaggle_bert -d -t <TELEGRAM_TOKEN>
 
--  Run slot-filling model with console interface:
-
-   .. code-block:: bash
-
-      python -m deeppavlov interact slotfill_dstc2 -d
-
--  Run slot-filling model with REST API:
+-  Run insults detection model with console interface:
 
    .. code-block:: bash
 
-      python -m deeppavlov riseapi slotfill_dstc2 -d
+      python -m deeppavlov interact insults_kaggle_bert -d
 
--  Predict intents on every line in a file:
+-  Run insults detection model with REST API:
 
    .. code-block:: bash
 
-      python -m deeppavlov predict intents_dstc2_bert -d --batch-size 15 < /data/in.txt > /data/out.txt
+      python -m deeppavlov riseapi insults_kaggle_bert -d
+
+-  Predict whether it is an insult on every line in a file:
+
+   .. code-block:: bash
+
+      python -m deeppavlov predict insults_kaggle_bert -d --batch-size 15 < /data/in.txt > /data/out.txt
 
 
 View `video demo <https://youtu.be/yzoiCa_sMuY>`__ of deployment of a

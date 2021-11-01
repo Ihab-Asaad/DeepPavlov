@@ -321,15 +321,5 @@ Otherwise, you should
 
 1. provide sql table with requested items or
 2. construct such table from provided in train samples ``db_result`` items.
-   This can be done with the following script:
-
-
-   .. code:: bash
-
-       python -m deeppavlov train configs/go_bot/database_<your_dataset>.json
-
-   where ``configs/go_bot/database_<your_dataset>.json`` is a copy
-   of ``configs/go_bot/database_dstc2.json`` with configured
-   ``save_path``, ``primary_keys`` and ``unknown_value``.
 
 .. |alt text| image:: ../../_static/gobot_diagram.png

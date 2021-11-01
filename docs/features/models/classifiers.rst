@@ -27,7 +27,7 @@ Command line
     python -m deeppavlov install <path_to_config>
 
 where ``<path_to_config>`` is a path to one of the :config:`provided config files <classifiers>`
-or its name without an extension, for example :config:`"intents_dstc2_bert" <classifiers/intents_dstc2_bert.json>`.
+or its name without an extension, for example :config:`"insults_kaggle_bert" <classifiers/insults_kaggle_bert.json>`.
 
 To download pre-trained models, vocabs, embeddings on the dataset of interest one should run the following command
 providing corresponding name of the config file (see above)
@@ -38,7 +38,7 @@ or provide flag ``-d`` for commands like ``interact``, ``telegram``, ``train``, 
     python -m deeppavlov download  <path_to_config>
 
 where ``<path_to_config>`` is a path to one of the :config:`provided config files <classifiers>`
-or its name without an extension, for example :config:`"intents_dstc2_bert" <classifiers/intents_dstc2_bert.json>`.
+or its name without an extension, for example :config:`"insults_kaggle_bert" <classifiers/insults_kaggle_bert.json>`.
 
 When using KerasClassificationModel for **Windows** platforms one have to set `KERAS_BACKEND` to `tensorflow`:
 
@@ -53,7 +53,7 @@ When using KerasClassificationModel for **Windows** platforms one have to set `K
     python -m deeppavlov interact <path_to_config> [-d]
 
 where ``<path_to_config>`` is a path to one of the :config:`provided config files <classifiers>`
-or its name without an extension, for example :config:`"intents_dstc2_bert" <classifiers/intents_dstc2_bert.json>`.
+or its name without an extension, for example :config:`"insults_kaggle_bert" <classifiers/insults_kaggle_bert.json>`.
 With the optional ``-d`` parameter all the data required to run selected pipeline will be **downloaded**.
 
 **TRAIN** After preparing the config file (including change of dataset, pipeline elements or parameters)
@@ -73,7 +73,7 @@ Then training can be run in the following way:
     python -m deeppavlov train <path_to_config>
 
 where ``<path_to_config>`` is a path to one of the :config:`provided config files <classifiers>`
-or its name without an extension, for example :config:`"intents_dstc2_bert" <classifiers/intents_dstc2_bert.json>`.
+or its name without an extension, for example :config:`"insults_kaggle_bert" <classifiers/insults_kaggle_bert.json>`.
 With the optional ``-d`` parameter all the data required to run selected pipeline will be **downloaded**.
 
 Python code
@@ -94,29 +94,25 @@ Then one can build and interact a model from configuration file:
 
 .. code:: python
 
-    from deeppavlov import build_model, configs
+    from deeppavlov import build_model
 
-    CONFIG_PATH = configs.classifiers.intents_dstc2_bert  # could also be configuration dictionary or string path or `pathlib.Path` instance
+    model = build_model('insults_kaggle_bert', download=True)  # in case of necessity to download some data
 
-    model = build_model(CONFIG_PATH, download=True)  # in case of necessity to download some data
+    model = build_model('insults_kaggle_bert', download=False)  # otherwise
 
-    model = build_model(CONFIG_PATH, download=False)  # otherwise
+    print(model(["You are dumb", "He lay flat on the brown, pine-needled floor of the forest"]))
 
-    print(model(["What is the weather in Boston today?"]))
-
-    >>> [['GetWeather']]
+    >>> ['Insult', 'Not Insult']
 
 **TRAIN** Also training can be run in the following way:
 
 .. code:: python
 
-    from deeppavlov import train_model, configs
+    from deeppavlov import train_model
 
-    CONFIG_PATH = configs.classifiers.intents_dstc2_bert  # could also be configuration dictionary or string path or `pathlib.Path` instance
+    model = train_model('insults_kaggle_bert', download=True)  # in case of necessity to download some data
 
-    model = train_model(CONFIG_PATH, download=True)  # in case of necessity to download some data
-
-    model = train_model(CONFIG_PATH, download=False)  # otherwise
+    model = train_model('insults_kaggle_bert', download=False)  # otherwise
 
 BERT models
 -----------
@@ -277,9 +273,7 @@ corresponding to `very negative`, `negative`, `neutral`, `positive`, `very posit
 +------------------+--------------------+------+-------------------------------------------------------------------------------------------------+-------------+--------+--------+-----------+
 | Task             | Dataset            | Lang | Model                                                                                           | Metric      | Valid  | Test   | Downloads |
 +==================+====================+======+=================================================================================================+=============+========+========+===========+
-| 28 intents       | `DSTC 2`_          | En   | :config:`BERT <classifiers/intents_dstc2_bert.json>`                                            | Accuracy    | 0.9673 | 0.9636 |  800 Mb   |
-+------------------+--------------------+      +-------------------------------------------------------------------------------------------------+-------------+--------+--------+-----------+
-| Insult detection | `Insults`_         |      | :config:`English BERT on PyTorch <classifiers/insults_kaggle_bert_torch.json>`                  | ROC-AUC     | 0.9329 | 0.877  |  1.1 Gb   |
+| Insult detection | `Insults`_         | En   | :config:`English BERT on PyTorch <classifiers/insults_kaggle_bert_torch.json>`                  | ROC-AUC     | 0.9329 | 0.877  |  1.1 Gb   |
 +                  +                    +      +-------------------------------------------------------------------------------------------------+             +--------+--------+-----------+
 |                  |                    |      | :config:`English BERT <classifiers/insults_kaggle_bert.json>`                                   |             | 0.9255 | 0.8612 |  1200 Mb  |
 +------------------+--------------------+      +-------------------------------------------------------------------------------------------------+-------------+--------+--------+-----------+

@@ -2,8 +2,6 @@
 
 * Tutorial for simple bot [[notebook]](gobot_tutorial.ipynb) [[colab]](https://colab.research.google.com/github/deepmipt/DeepPavlov/blob/master/examples/gobot_tutorial.ipynb)
 
-* Tutorial for advanced goal-oriented bot [[notebook]](gobot_extended_tutorial.ipynb) [[colab]](https://colab.research.google.com/github/deepmipt/DeepPavlov/blob/master/examples/gobot_extended_tutorial.ipynb)
-
 * Tutorial for intent classifier [[notebook]](classification_tutorial.ipynb) [[colab]](https://colab.research.google.com/github/deepmipt/DeepPavlov/blob/master/examples/classification_tutorial.ipynb)
 
 * Pseudo-labeling for classication task [[notebook]](Pseudo-labeling%20for%20classification.ipynb) [[colab]](https://colab.research.google.com/github/deepmipt/DeepPavlov/blob/master/examples/Pseudo-labeling%20for%20classification.ipynb)
