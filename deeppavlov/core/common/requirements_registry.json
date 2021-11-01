@@ -103,9 +103,6 @@
   "lemmatized_output_prettifier": [
     "{DEEPPAVLOV_PATH}/requirements/tf.txt"
   ],
-  "morpho_tagger": [
-    "{DEEPPAVLOV_PATH}/requirements/tf.txt"
-  ],
   "mt_bert": [
     "{DEEPPAVLOV_PATH}/requirements/tf.txt",
     "{DEEPPAVLOV_PATH}/requirements/bert_dp.txt"
