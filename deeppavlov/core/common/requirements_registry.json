@@ -131,9 +131,6 @@
   "rel_ranking_infer": [
     "{DEEPPAVLOV_PATH}/requirements/tf.txt"
   ],
-  "siamese_predictor": [
-    "{DEEPPAVLOV_PATH}/requirements/tf.txt"
-  ],
   "smn_nn": [
     "{DEEPPAVLOV_PATH}/requirements/tf.txt"
   ],

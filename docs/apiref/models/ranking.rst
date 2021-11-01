@@ -16,7 +16,3 @@ Ranking classes.
     .. automethod:: train_on_batch
     .. automethod:: __call__
     .. automethod:: reset
-
-.. autoclass:: deeppavlov.models.ranking.siamese_predictor.SiamesePredictor
-
-

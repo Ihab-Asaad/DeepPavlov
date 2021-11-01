@@ -127,7 +127,6 @@
   "sanitizer": "deeppavlov.models.preprocessors.sanitizer:Sanitizer",
   "sentseg_restore_sent": "deeppavlov.models.preprocessors.sentseg_preprocessor:SentSegRestoreSent",
   "siamese_iterator": "deeppavlov.dataset_iterators.siamese_iterator:SiameseIterator",
-  "siamese_predictor": "deeppavlov.models.ranking.siamese_predictor:SiamesePredictor",
   "siamese_preprocessor": "deeppavlov.models.preprocessors.siamese_preprocessor:SiamesePreprocessor",
   "siamese_reader": "deeppavlov.dataset_readers.siamese_reader:SiameseReader",
   "simple_dstc2_reader": "deeppavlov.dataset_readers.dstc2_reader:SimpleDSTC2DatasetReader",
